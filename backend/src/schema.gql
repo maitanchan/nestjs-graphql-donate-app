@@ -1,0 +1,57 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Donation {
+  id: Int!
+  count: Int!
+  displayName: String!
+  email: String!
+  mobile: String
+  team: String
+  message: String
+  createdAt: DateTime
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Result {
+  total: Int!
+}
+
+type SubscriptionTotal {
+  totalUpdated: Result
+  total: Int!
+}
+
+type Query {
+  donations(orderByParams: OrderByParams!): [Donation!]!
+  donation(id: Int!): Donation!
+  getTotalDonation: Int!
+}
+
+input OrderByParams {
+  field: String
+  direction: String
+}
+
+type Mutation {
+  createDonation(createDonationInput: CreateDonationInput!): Donation!
+}
+
+input CreateDonationInput {
+  count: Int!
+  displayName: String!
+  email: String!
+  mobile: String
+  team: String
+  message: String
+  createdAt: DateTime
+}
+
+type Subscription {
+  totalUpdated: SubscriptionTotal!
+}
