@@ -14,7 +14,9 @@ export class DonationsService {
     const checkEmail = await this.prisma.donation.findFirst({ where: { email: createDonationInput.email } })
 
     if (checkEmail) {
+
       throw new HttpException("Email already exist", HttpStatus.CONFLICT)
+
     }
 
     const donation = await this.prisma.donation.create({ data: createDonationInput })

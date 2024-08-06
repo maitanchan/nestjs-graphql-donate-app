@@ -8,9 +8,13 @@ import { PrismaService } from 'prisma/prisma.service';
   imports: [],
 
   providers: [
+
     DonationsResolver,
+
     DonationsService,
+
     PrismaService
+
   ]
 
 })

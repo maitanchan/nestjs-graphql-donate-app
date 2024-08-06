@@ -12,11 +12,17 @@ import { GraphQLDateTime } from 'graphql-iso-date';
     GraphQLModule.forRoot<ApolloDriverConfig>({
 
       driver: ApolloDriver,
+
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+
       resolvers: { DateTime: GraphQLDateTime },
+
       subscriptions: {
+
         'graphql-ws': true,
+
         'subscriptions-transport-ws': true
+
       }
 
     }),
